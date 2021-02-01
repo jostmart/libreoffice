@@ -18,3 +18,10 @@ EXPOSE 8997
 # Libreoffice user customization
 RUN adduser --home=/opt/libreoffice --disabled-password --gecos "" --shell=/bin/bash libreoffice
 
+ADD entrypoint.sh /opt/libreoffice/entrypoint.sh
+RUN chmod +x /opt/libreoffice/entrypoint.sh
+
+VOLUME ["/tmp"]
+WORKDIR "/tmp"
+
+ENTRYPOINT ["/opt/libreoffice/entrypoint.sh"]
