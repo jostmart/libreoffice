@@ -3,6 +3,12 @@
 
 docker run -p 127.0.0.1:8997:8997 -v /tmp/convert/:/tmp/convert -v /usr/share/fonts/custom:/usr/share/fonts/custom -it -d jostmart/libreoffice:latest
 
+If your container host use selinux, append /tmp/convert with z like this:
+
+```
+ -v /tmp/convert/:/tmp/convert:z
+```
+
 
 ### Parameters to libreoffice
 
