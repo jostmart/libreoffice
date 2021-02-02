@@ -15,6 +15,8 @@ RUN apt-get -y -q remove libreoffice-gnome
 
 RUN apt-get clean
 
+COPY code128.ttf /usr/share/fonts/custom/
+
 EXPOSE 8997
 
 # Libreoffice user customization
