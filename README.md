@@ -1,18 +1,14 @@
 
-### Starting the container
+### Starting the container on selinux enabled host
 
-docker run -p 127.0.0.1:8997:8997 -v /tmp/convert/:/tmp/convert -v /usr/share/fonts/custom:/usr/share/fonts/custom -it -d jostmart/libreoffice:latest
+docker run -p 127.0.0.1:8997:8997 -v /tmp/convert/:/tmp/convert:z -it -d jostmart/libreoffice:latest
 
-If your container host use selinux, append /tmp/convert with z like this:
-
-```
- -v /tmp/convert/:/tmp/convert:z
-```
+If your container host don't use selinux, remove z from the mount options
 
 
 ### Parameters to libreoffice
 
-Example configuration 
+Example configuration parameters to the libreoffice process line in entrypoint.sh
 
 ```
 root@someos:/$ libreoffice --headless 
